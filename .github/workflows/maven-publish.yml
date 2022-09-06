@@ -20,29 +20,13 @@ jobs:
       packages: write
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK 17
-      uses: actions/setup-java@v3
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-
-
-    - name: Build with Maven
-      run: mvn clean install
-
-# what else want to do on occuring of events
-# login to docker hub
-# create docker image
-# push to docker hub
     - name: build and push docker image
       uses: mr-smithers-excellent/docker-build-push@v5
-    - name: Build & push Docker image
       with:
               image: shivam9984/springboot-ci-cd
               tags: v1, latest
-              registry: registry-url.io
-              dockerfile: Dockerfile.ci
+              registry: docker.io
+              dockerfile: Dockerfile
               username: ${{ secrets.DOCKER_USERNAME }}
               password: ${{ secrets.DOCKER_PASSWORD }}
 
