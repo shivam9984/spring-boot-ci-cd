@@ -32,7 +32,7 @@ jobs:
               image: shivam9984/springboot-ci-cd
               tags: v1, latest
               registry: docker.io
-              dockerfile: Dockerfile
+              context: .
               username: ${{ secrets.DOCKER_USERNAME }}
               password: ${{ secrets.DOCKER_PASSWORD }}
 
