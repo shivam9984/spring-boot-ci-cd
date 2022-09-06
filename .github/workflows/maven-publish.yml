@@ -37,5 +37,6 @@ jobs:
       uses: docker/build-push-action@v3
       with:
           context: .
+          dockerfile: Dockerfile
           push: true
           tags: shivam9984/springboot-ci-cd:latest
