@@ -8,7 +8,7 @@ COPY src /usr/src/
 RUN mvn install
     # getting into target folder
 RUN ls target
-COPY target/dockerdemonew-${VERSION}.jar usr/target/application_docker.jar
+RUN mv target/dockerdemonew-${VERSION}.jar target/application_docker.jar
 
 FROM openjdk:17
 WORKDIR /app/
